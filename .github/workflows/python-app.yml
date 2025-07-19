@@ -22,7 +22,7 @@ jobs:
     - name: 📦 Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r pytorch_project/requirements.txt
+        pip install -r pytorch_project/requierments.txt
 
     - name: ✅ Test Flask App Entry
       run: |
