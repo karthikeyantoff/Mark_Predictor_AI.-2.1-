@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <cender>
+<head>
+    <title>Mark Predict AI(2.0)</title>
+</head>
+<body>
+<center>
+    <h1>Predict Marks Based on Daily Routine</h1>
+    <form method="POST">
+
+        <label>Student ID</label>
+        <input type="number" name="StudentID" required><br><br>
+
+        <label>Studen Name</label>
+        <input type="text" name="StudentName" required><br><br>
+
+        <label>Student Course</label>
+        <input type="text" name="StudentCourse" required><br><br>
+        
+        <label>Sleep Hours:</label>
+        <input type="number" name="SleepHours" step="0.1" required><br><br>
+        
+        <label>Play Hours:</label>
+        <input type="number" name="PlayHours" step="0.1" required><br><br>
+
+        <label>Studing Hours</label>
+        <input type="number" name="StudHours" step="0.1" required><br><br>
+        
+        <input type="submit" value="Predict">
+    </form>
+    <h2>{{ result }}</h2>
+</center>
+</body>
+</html>
