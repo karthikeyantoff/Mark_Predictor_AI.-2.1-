@@ -27,6 +27,6 @@ jobs:
     - name: ✅ Test Flask App Entry
       run: |
         echo "import sys" > test_app.py
-        echo "sys.path.insert(0, '.')" >> test_app.py
+        echo "sys.path.insert(0, 'pytorch_project')" >> test_app.py
         echo "from app import app" >> test_app.py
         python test_app.py
