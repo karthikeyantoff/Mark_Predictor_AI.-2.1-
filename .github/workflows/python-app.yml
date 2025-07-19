@@ -1,0 +1,35 @@
+name: Python Application CI/CD
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name:  Checkout code
+      uses: actions/checkout@v4
+    - name:  Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.13"
+    - name:  Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name:  Create project directories
+      run: mkdir -p pytorch_project/csv_folder
+
+    - name:  Download dataset
+      run: |
+        wget -O pytorch_project/csv_folder/csv_student_marks_dataset.csv https://gist.githubusercontent.com/pravin-d/a22900c73328e376020ce12f5a8955d1/raw/9ab0a69a91a14a143b7540a3818e612b7a488663/csv_student_marks_dataset.csv
+    - name: Train the model
+      run: python train_files.py
+
+    - name: Test Flask app import
+      run: |
+        python -c "from app import app"
+        echo "App imported successfully!"
